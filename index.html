@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Best Friend Day, Sarita! 🎉</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0b1a;
+    --card: #16112b;
+    --card2: #1c1735;
+    --accent1: #c084fc;
+    --accent2: #f472b6;
+    --accent3: #fb923c;
+    --accent4: #34d399;
+    --text: #f1e9ff;
+    --muted: #a89dc0;
+    --border: rgba(192, 132, 252, 0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Stars */
+  .stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .star {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    animation: twinkle var(--d) ease-in-out infinite alternate;
+  }
+  @keyframes twinkle {
+    from { opacity: 0.1; transform: scale(0.8); }
+    to { opacity: 0.9; transform: scale(1.2); }
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 3.5rem 1rem 2.5rem;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-family: 'Caveat', cursive;
+    font-size: 1.1rem;
+    color: var(--accent2);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.8rem;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #c084fc 0%, #f472b6 50%, #fb923c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+    animation: fadeDown 0.9s ease both;
+  }
+
+  .hero-sub {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: 300;
+    animation: fadeDown 1s ease both;
+  }
+
+  .hero-emoji {
+    font-size: 2.5rem;
+    display: block;
+    margin: 1rem 0 0;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Divider */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    opacity: 0.3;
+  }
+  .divider hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--accent1);
+  }
+  .divider span { font-size: 1rem; }
+
+  /* Cards Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+    margin: 2rem 0;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 1.4rem 1.5rem;
+    animation: fadeUp 0.7s ease both;
+  }
+  .card:nth-child(2) { animation-delay: 0.1s; }
+  .card:nth-child(3) { animation-delay: 0.2s; }
+  .card:nth-child(4) { animation-delay: 0.3s; }
+  .card:nth-child(5) { animation-delay: 0.4s; }
+  .card:nth-child(6) { animation-delay: 0.5s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.7rem;
+    display: block;
+  }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent1);
+    margin-bottom: 0.5rem;
+  }
+
+  .card p {
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .card p em {
+    font-style: italic;
+    color: var(--text);
+    font-family: 'Caveat', cursive;
+    font-size: 1rem;
+  }
+
+  /* Map Section */
+  .map-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 1.6rem;
+    margin: 1.5rem 0;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .map-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--accent3);
+    margin-bottom: 0.4rem;
+  }
+
+  .map-section p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+  }
+
+  .india-map {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+  }
+
+  .location-pin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    text-align: center;
+  }
+
+  .pin-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 2px solid;
+  }
+
+  .pin-circle.assam { border-color: var(--accent2); background: rgba(244,114,182,0.12); }
+  .pin-circle.hyderabad { border-color: var(--accent4); background: rgba(52,211,153,0.12); }
+  .pin-circle.trichy { border-color: var(--accent3); background: rgba(251,146,60,0.12); }
+
+  .pin-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .pin-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-family: 'Caveat', cursive;
+  }
+
+  .connector {
+    font-size: 1.4rem;
+    color: var(--accent1);
+    opacity: 0.6;
+  }
+
+  /* Timeline / memory section */
+  .memories {
+    margin: 2rem 0;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+
+  .memories h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--accent2);
+    margin-bottom: 1.2rem;
+    text-align: center;
+  }
+
+  .memory-list {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .memory-item {
+    position: relative;
+  }
+
+  .memory-item::before {
+    content: '';
+    position: absolute;
+    left: -1.68rem;
+    top: 0.4rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent1);
+    border: 2px solid var(--bg);
+  }
+
+  .memory-item p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .memory-item p strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* Letter */
+  .letter {
+    background: linear-gradient(135deg, rgba(192,132,252,0.08), rgba(244,114,182,0.06));
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 2rem;
+    margin: 2rem 0;
+    animation: fadeUp 0.7s 0.5s ease both;
+  }
+
+  .letter h2 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--accent1);
+    margin-bottom: 1.2rem;
+  }
+
+  .letter p {
+    font-family: 'Caveat', cursive;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--text);
+    margin-bottom: 0.8rem;
+  }
+
+  .letter .sign {
+    margin-top: 1.2rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--accent2);
+    font-size: 1.1rem;
+  }
+
+  /* Fun facts */
+  .fun-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+  }
+
+  .fun-badge {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 40px;
+    padding: 0.45rem 1rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .fun-badge span:first-child { font-size: 1rem; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer p {
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    color: var(--muted);
+  }
+
+  .footer .big {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent1);
+    display: block;
+    margin-top: 0.3rem;
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  /* Confetti burst on load */
+  .confetti-piece {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    top: -10px;
+    border-radius: 2px;
+    animation: confettiFall linear forwards;
+    z-index: 999;
+    pointer-events: none;
+  }
+
+  @keyframes confettiFall {
+    to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent1);
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  /* Highlight quote */
+  .quote-block {
+    border-left: 3px solid var(--accent2);
+    padding: 0.8rem 1.2rem;
+    margin: 0.8rem 0;
+    background: rgba(244,114,182,0.06);
+    border-radius: 0 10px 10px 0;
+  }
+  .quote-block p {
+    font-family: 'Caveat', cursive;
+    font-size: 1.05rem;
+    color: var(--text);
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<!-- Starfield -->
+<div class="stars" id="stars"></div>
+
+<div class="wrapper">
+
+  <!-- Hero -->
+  <div class="hero">
+    <span class="hero-tag">✦ Best Friend Day • June 8, 2026 ✦</span>
+    <h1>Happy Best Friend Day,<br>Sarita! 🌸</h1>
+    <p class="hero-sub">From Tezpur, Assam → all the way to your single buddy from Tamil Nadu 🫡</p>
+    <span class="hero-emoji">🎉</span>
+  </div>
+
+  <div class="divider"><hr><span>✦</span><hr></div>
+
+  <!-- Where We Are Map -->
+  <div class="map-section">
+    <div class="section-label">Connected across India</div>
+    <h2>Assam ↔ Hyderabad ↔ Tamil Nadu</h2>
+    <p>Three different corners of India, one solid friendship</p>
+    <div class="india-map">
+      <div class="location-pin">
+        <div class="pin-circle assam">🏔️</div>
+        <span class="pin-name">Tezpur, Assam</span>
+        <span class="pin-label">Sarita's home<br>(city of love!)</span>
+      </div>
+      <span class="connector">— ✦ —</span>
+      <div class="location-pin">
+        <div class="pin-circle hyderabad">💼</div>
+        <span class="pin-name">Hyderabad</span>
+        <span class="pin-label">Ravi's internship<br>(too hot to go outside 😅)</span>
+      </div>
+      <span class="connector">— ✦ —</span>
+      <div class="location-pin">
+        <div class="pin-circle trichy">🌴</div>
+        <span class="pin-name">Tiruchirapalli, TN</span>
+        <span class="pin-label">Ravi's hometown<br>(save it in contacts!! 😭)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Things We Have in Common -->
+  <div class="section-label" style="text-align:center; margin-top: 2rem;">Things that make us us</div>
+  <div class="grid">
+    <div class="card">
+      <span class="card-icon">📺</span>
+      <h3>Certified Drama Addicts</h3>
+      <p>K-dramas, C-dramas, Netflix, teen movies — you've watched it all. While Ravi cried through <em>12 episodes of a show in ONE night</em>, you're the one sending reel edits of every new drama 😭</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">😴</span>
+      <h3>Professional Sleepers</h3>
+      <p>Your sleep schedule? A whole mood. Ravi slept 30 hours last weekend. You just woke up and messaged him. <em>Both of you are the same, honestly.</em> 🤣</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🍛</span>
+      <h3>Food is Priority</h3>
+      <p>You said it best — <em>"food is main priority."</em> And you'd eat South Indian food 24×7 if you could. Ravi says there's no good restaurant near him. You suggested Bangalore. Classic.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">💸</span>
+      <h3>Gareeb Gang</h3>
+      <p>Flight prices too high 😭 Phone getting old 😭 No money for dresses + hairdryer + skincare 😭 But somehow always figuring it out — like sharing Ravi's 2TB Google storage plan 🫶</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">💭</span>
+      <h3>Overthinkers in Chief</h3>
+      <p>You both have that one person you think about randomly, in exam halls, while watching dramas, for no reason... <em>"Once in a blue moon they come back."</em> Right? 🥲</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">📚</span>
+      <h3>Book Recs & Chaos</h3>
+      <p>You recommended <em>Ravinder Singh</em> books to a guy who just walked into a bookstore and saw ₹400 price tags. You: <em>"search online, it's ₹150!"</em> Helpful queen. 🤌</p>
+    </div>
+  </div>
+
+  <!-- Fun Facts Badges -->
+  <div class="section-label" style="margin-top:1.5rem;">fun facts about you two</div>
+  <div class="fun-row">
+    <div class="fun-badge"><span>🎂</span> Both 21, same age (Oct 31 & Dec 2)</div>
+    <div class="fun-badge"><span>📱</span> Both Samsung users</div>
+    <div class="fun-badge"><span>🎵</span> Both on Spotify</div>
+    <div class="fun-badge"><span>🧠</span> Political Science meets B.Tech</div>
+    <div class="fun-badge"><span>🌏</span> Sarita forgot where TN is 😭</div>
+    <div class="fun-badge"><span>🤣</span> You're both single buddies</div>
+    <div class="fun-badge"><span>🌙</span> Both late-night chatters</div>
+    <div class="fun-badge"><span>🔁</span> Both send each other reels at 8am</div>
+  </div>
+
+  <div class="divider" style="margin: 2rem 0;"><hr><span>✦</span><hr></div>
+
+  <!-- Memories Timeline -->
+  <div class="memories">
+    <h2>Little moments that matter 🥹</h2>
+    <div class="memory-list">
+      <div class="memory-item">
+        <p><strong>December 2025</strong> — You messaged "Raviii, my single buddy 🤣" and a whole beautiful chaos of a friendship began. Talking about jobs, dramas, heartbreaks, Google storage and life at midnight.</p>
+      </div>
+      <div class="memory-item">
+        <p><strong>That geography moment</strong> — You literally asked "Tamil Nadu where is it?" and went to check the India map. Ravi, a B.Tech grad, was shook. You had a Geography minor. 😂 Legends only.</p>
+      </div>
+      <div class="memory-item">
+        <p><strong>The Google One plan share</strong> — Ravi offered you a slot on his 2TB family plan just like that. No hesitation. You said "pls keep a slot for me 😭❤️" — that's trust right there.</p>
+      </div>
+      <div class="memory-item">
+        <p><strong>The drama marathon rivalry</strong> — You sharing C-drama reels, him recommending Pro Bono, you sending Yumi's Cells clips, him binge-watching Stranger Things. Two people with completely different tastes somehow understanding each other's chaos.</p>
+      </div>
+      <div class="memory-item">
+        <p><strong>June 2026</strong> — You messaged on a Saturday morning just because you knew it was his off day. <em>"I remember everything about my friends,"</em> you said. And that says everything about you, Sarita. ✨</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Letter -->
+  <div class="letter">
+    <h2>A little note for you 💌</h2>
+    <p>Dear Sarita,</p>
+    <p>You once said "I remember everything about my friends" — and that says so much about who you are. You're the kind of person who messages first on weekends, who keeps checking in even when life gets busy, and who makes someone feel remembered without making a big deal of it.</p>
+
+    <div class="quote-block">
+      <p>From a girl in Assam and a guy in Hyderabad (originally from Tamil Nadu, please save it in your contacts 😭) — this friendship crossed every distance, every weird time zone, every "I'm bored" midnight text.</p>
+    </div>
+
+    <p>You're preparing for your Masters entrance, navigating post-grad life, watching reels at 8am, and still making time for the people you care about. That's not small. That's genuinely beautiful.</p>
+
+    <p>Here's to more midnight conversations, more drama recommendations, more "gareeb gang" solidarity, and more years of being each other's single buddy 🫡</p>
+
+    <p class="sign">— Your Tamil Nadu friend, now in Hyderabad, wishing he could share a dosa with you IRL 🌴</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Made with 💜 from Hyderabad to Tezpur</p>
+    <span class="big">Happy Best Friend Day, Sarita! 🎉</span>
+    <p style="margin-top: 1rem; font-size: 0.82rem; color: var(--muted); font-family: 'DM Sans', sans-serif;">
+      From Ravi — your single buddy, corporate-majdoor-in-training, and fellow bored human 🫡
+    </p>
+  </div>
+
+</div>
+
+<script>
+  // Generate stars
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 120; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2.5 + 0.5;
+    s.style.cssText = `
+      left: ${Math.random()*100}%;
+      top: ${Math.random()*100}%;
+      width: ${size}px;
+      height: ${size}px;
+      --d: ${(Math.random()*3+1.5).toFixed(1)}s;
+      animation-delay: ${(Math.random()*3).toFixed(1)}s;
+    `;
+    starsEl.appendChild(s);
+  }
+
+  // Confetti
+  const colors = ['#c084fc', '#f472b6', '#fb923c', '#34d399', '#fbbf24', '#60a5fa'];
+  function launchConfetti() {
+    for (let i = 0; i < 60; i++) {
+      const p = document.createElement('div');
+      p.className = 'confetti-piece';
+      p.style.cssText = `
+        left: ${Math.random()*100}vw;
+        background: ${colors[Math.floor(Math.random()*colors.length)]};
+        animation-duration: ${(Math.random()*2+2).toFixed(1)}s;
+        animation-delay: ${(Math.random()*1).toFixed(2)}s;
+        transform: rotate(${Math.random()*360}deg);
+        width: ${Math.random()*8+4}px;
+        height: ${Math.random()*8+4}px;
+      `;
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 4000);
+    }
+  }
+  launchConfetti();
+  setTimeout(launchConfetti, 1200);
+</script>
+</body>
+</html>
